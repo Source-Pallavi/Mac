@@ -24,11 +24,11 @@ namespace Trainbooking
         [Test, Order(2)]
         public void TestMethod2()
         {
-            Tourism pack = new Tourism(driver);
-          //  pack.Options();
+            IPhone pack = new IPhone(driver);
+            pack.Options();
 
         }
-        [TearDown]
+        [OneTimeTearDown]
     public void close_Browser()
     {
        driver.Quit();

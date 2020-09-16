@@ -10,14 +10,16 @@ namespace Trainbooking.Base
    public class BaseClass
     {
         IWebDriver driver = null;
+        ChromeOptions optionss = new ChromeOptions();
 
         public IWebDriver StartBrowser(String browserName)
         {
             //browser factory
             try
             {
+                optionss.AddArgument(@"--incognito");
                 if (browserName.ToLower().Equals("")) throw (new Exception("BROWSER_NAME is not specified"));
-                if (browserName.ToLower().Equals("chrome")) driver = new ChromeDriver();//return chrome driver
+                if (browserName.ToLower().Equals("chrome")) driver = new ChromeDriver(optionss);//return chrome driver
                 if (browserName.ToLower().Equals("firefox")) driver = new FirefoxDriver();//return firefox driver
             }
             catch (Exception e)

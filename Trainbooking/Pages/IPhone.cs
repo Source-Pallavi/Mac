@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -20,16 +21,23 @@ namespace Trainbooking.Pages
 
         [FindsBy(How = How.XPath, Using = "//span[@class='chapternav-label'][contains(text(),'Compare')]")]
         public IWebElement compare;
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Land Package')]")]
-        public IWebElement Compare;
+        [FindsBy(How = How.ClassName, Using = "compare-row")]
+        public IList<IWebElement> features { get; set; }
+        [FindsBy(How = How.XPath, Using = "//div[@class='compare-column compare-column-one']//a[@class='button'][contains(text(),'Buy')]")]
+        public IWebElement buy;
 
-        public object WriteLogFile { get; private set; }
 
         public void Options()
         {
             Thread.Sleep(2000);
             compare.Click();
-            LogTheData.WriteLog("ConsoleLog", String.Format("{0} @ {1}", "Log is Created at", DateTime.Now));
+            LogTheData.WriteLog("ConsoleLog",  features);
+            Thread.Sleep(2000);
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollBy(0,100)");
+            buy.Click();
+
+
         }
     }
     }

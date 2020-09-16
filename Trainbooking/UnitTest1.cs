@@ -28,6 +28,13 @@ namespace Trainbooking
             pack.Options();
 
         }
+        [Test, Order(3)]
+        public void TestMethod3()
+        {
+            BuyPhone pack = new BuyPhone(driver);
+            pack.specification();
+
+        }
         [OneTimeTearDown]
     public void close_Browser()
     {

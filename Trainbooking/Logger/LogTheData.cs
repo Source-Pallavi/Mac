@@ -9,9 +9,9 @@ namespace Trainbooking.Logger
 {
     public class LogTheData
     {
-        public static bool WriteLog(string strFileName, IList<IWebElement> strMessage)
+        public static void WriteLog(string strFileName, IList<IWebElement> strMessage)
         {
-            try
+           /* try
             {
                 String path = @"C:\Users\rebel\source\repos\Trainbooking\Trainbooking\Logger\";
                 FileStream objFilestream = new FileStream(string.Format("{0}\\{1}", path, strFileName), FileMode.Append, FileAccess.Write);
@@ -30,7 +30,7 @@ namespace Trainbooking.Logger
             {
                 ex.ToString();
                 return false;
-            }
+            }*/
         }
     }
 }

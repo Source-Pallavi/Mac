@@ -22,7 +22,7 @@ namespace Trainbooking.Base
                 if (browserName.ToLower().Equals("chrome")) driver = new ChromeDriver(optionss);//return chrome driver
                 if (browserName.ToLower().Equals("firefox")) driver = new FirefoxDriver();//return firefox driver
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw (new Exception("BROWSER_NAME is not specified"));
             }

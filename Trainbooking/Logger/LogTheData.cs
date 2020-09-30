@@ -28,6 +28,7 @@ namespace Trainbooking.Logger
             }
             catch (Exception ex)
             {
+                ex.ToString();
                 return false;
             }
         }
